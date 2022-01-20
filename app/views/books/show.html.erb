@@ -1,0 +1,33 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+      <table>
+        <%= render "users/profile", user: @user %>
+      </table>
+      <div>
+       <tr><%= render "books/form", {book:@booknew, btn: "Create Book"} %></tr>
+      </div>
+    </div>
+    <div class="col-md-8 offset-md-1">
+      <h2>Book detail</h2>
+      <table class="table">
+       <tbody>
+         <tr>
+           <td>
+             <%= link_to user_path(@user) do %>
+             <%= attachment_image_tag @user, :profile_image, size: "40x40", fallback: "no_image.jpg" %><br>
+             <%= link_to @user.name, user_path(@user) %>
+             <% end %>
+           </td>
+           <td><%= link_to @book.title %></td>
+           <td><%= @book.body %></td>
+           <% if @book.user_id == current_user.id %>
+           <td><%= link_to "Edit", edit_book_path(@book), class:"btn btn-sm btn-success" %></td>
+           <td><%= link_to "Destroy", book_path, method: :delete, class:"btn btn-sm btn-danger", "data-confirm"=> "Are you sure?" %></td>
+           <% end %>
+         </tr>
+       </tbody>
+      </table>
+    </div>
+  </div>
+</div>
