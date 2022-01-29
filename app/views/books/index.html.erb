@@ -2,8 +2,12 @@
 <%= render "books/error", model: @booknew %>
    <div class="row">
      <div class="col-md-3">
-       <table><%= render "users/profile", user: @user %></table>
-       <div><%= render "books/form", {book: @booknew, btn: "Create Book"} %></div>
+       <table>
+         <tr><%= render "users/profile", user: @user %></tr>
+       </table>
+       <div>
+         <tr><%= render "books/form", {book: @booknew, btn: "Create Book"} %></tr>
+       </div>
      </div>
      <div class="col-md-8 offset-md-1">
        <h2>Books</h2>
